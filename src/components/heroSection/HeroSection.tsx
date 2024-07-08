@@ -4,43 +4,56 @@ import CustomTypography from "../typography/CustomTypography";
 import { green, grey } from "@mui/material/colors";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { GrStatusGoodSmall } from "react-icons/gr";
+import { useResponsiveStack } from "../../responsive";
+import { useResponsiveFont } from "../../responsive/useResponsiveFont";
 
 type Props = {};
 
 export const HeroSection = (props: Props) => {
+  const { isSmallDown } = useResponsiveStack();
+  const getFontStyle = useResponsiveFont();
   return (
     <Box
       sx={{
         display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
+        flexDirection: isSmallDown ? "column-reverse" : "row",
+        justifyContent: isSmallDown ? "center" : "space-between",
+        alignItems: isSmallDown ? "center" : "flex-start",
         width: "100%",
-     
       }}
     >
-      <Box sx={{ flex: 1 }}>
+      <Box sx={{ flex: 1, mt: isSmallDown ? 4 : 0 }}>
         <CustomTypography
-          sx={{ fontSize: "60px", lineHeight: "72px", letterSpacing: "-2%" }}
+          sx={{
+            ...getFontStyle("H1"),
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
         >
           Hi, I’m Muhammed 👋
         </CustomTypography>
         <CustomTypography
           sx={{
-            fontSize: "16px",
-            lineHeight: "24px",
-            fontWeight: "400",
-            letterSpacing: "0%",
             width: "80%",
+            ...getFontStyle("Body2"),
           }}
         >
           I'm a frontend developer (React.js & React Native) with a focus on
-          creating  exceptional digital experiences
-          that are fast, accessible, visually appealing, and responsive. Even
-          though I have been creating web and mobile applications for over 2 years, I still
-          love it as if it was something new.
+          creating exceptional digital experiences that are fast, accessible,
+          visually appealing, and responsive. Even though I have been creating
+          web and mobile applications for over 2 years, I still love it as if it
+          was something new.
         </CustomTypography>
         <Box sx={{ mt: 5 }}>
-          <CustomTypography sx={{ display: "flex", alignItems: "center" }}>
+          <CustomTypography
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              ...getFontStyle("Body2"),
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
             <MdOutlineLocationOn
               style={{ marginRight: "10px" }}
               size={20}
@@ -49,7 +62,12 @@ export const HeroSection = (props: Props) => {
             Cairo, Egypt
           </CustomTypography>
           <CustomTypography
-            sx={{ display: "flex", alignItems: "center", marginLeft: "5px" }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              marginLeft: "5px",
+              ...getFontStyle("Body2"),
+            }}
           >
             <GrStatusGoodSmall
               style={{ marginRight: "10px" }}

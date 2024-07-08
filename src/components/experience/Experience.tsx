@@ -1,17 +1,16 @@
 import Box from "@mui/material/Box";
-import { grey } from "@mui/material/colors";
+import { green, grey } from "@mui/material/colors";
 import CustomTypography from "../typography/CustomTypography";
-import { skillsdata } from "./SkillsData";
-import SkillsCard from "./SkillsCard";
-import { Grid } from "@mui/material";
+import { ExperienceCard } from "./ExperienceCard";
 import { useResponsiveFont } from "../../responsive/useResponsiveFont";
 import { useResponsiveStack } from "../../responsive";
 
 type Props = {};
 
-export const Skills = ({}: Props) => {
+export const Experience = ({}: Props) => {
   const getFontStyle = useResponsiveFont();
   const { isMediumDown } = useResponsiveStack();
+
   return (
     <Box>
       <Box
@@ -24,7 +23,7 @@ export const Skills = ({}: Props) => {
       >
         <Box
           sx={{
-            width: "75px",
+            width: "95px",
             height: "35px",
             backgroundColor: grey[300],
             color: grey[600],
@@ -42,7 +41,7 @@ export const Skills = ({}: Props) => {
               color: grey[600],
             }}
           >
-            Skills
+            Experience
           </CustomTypography>
         </Box>
         <CustomTypography
@@ -53,22 +52,10 @@ export const Skills = ({}: Props) => {
             textAlign: isMediumDown ? "center" : "inherit",
           }}
         >
-          The skills, tools and technologies I am really good at:
+          Here is a quick summary of my most recent experiences:
         </CustomTypography>
       </Box>
-      <Box sx={{ width: "100%", display: "flex", flexDirection: "row", mt: 5 }}>
-        <Grid container spacing={3}>
-          {skillsdata.map((item) => (
-            <Grid item xs={4} sm={3} md={2}>
-              <SkillsCard
-                key={item.title}
-                title={item.title}
-                icons={item.icons}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+      <ExperienceCard />
     </Box>
   );
 };

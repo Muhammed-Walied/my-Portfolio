@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { Box, CssBaseline, Divider, Toolbar, Typography } from "@mui/material";
+import { Box, CssBaseline, Divider, Toolbar } from "@mui/material";
 import { Header } from "./components/header/Header";
 import { HeroSection } from "./components/heroSection/HeroSection";
 import { Skills } from "./components/skills/Skills";
+import { Experience } from "./components/experience/Experience";
+import { Projects } from "./components/projects/Projects";
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
         <br />
         <Divider sx={{ width: "100%" }} />
         <br />
+        <Experience />
+        <br />
+        <Divider sx={{ width: "100%" }} />
+        <br />
+        <Projects />
       </Box>
     </Box>
   );
