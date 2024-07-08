@@ -9,7 +9,7 @@ import { useResponsiveFont } from "../../responsive/useResponsiveFont";
 
 type Props = {};
 
-export const HeroSection = (props: Props) => {
+export const HeroSection = ({}: Props) => {
   const { isSmallDown } = useResponsiveStack();
   const getFontStyle = useResponsiveFont();
   return (

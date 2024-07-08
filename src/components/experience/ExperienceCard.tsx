@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import React from "react";
 import CustomTypography from "../typography/CustomTypography";
 import { green, grey } from "@mui/material/colors";
 import { useResponsiveFont } from "../../responsive/useResponsiveFont";

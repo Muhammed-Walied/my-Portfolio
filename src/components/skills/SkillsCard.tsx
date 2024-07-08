@@ -1,7 +1,5 @@
 import Box from "@mui/material/Box";
-import { blue, grey } from "@mui/material/colors";
-import React from "react";
-import { SiTypescript } from "react-icons/si";
+import { grey } from "@mui/material/colors";
 import CustomTypography from "../typography/CustomTypography";
 import { useResponsiveFont } from "../../responsive/useResponsiveFont";
 

@@ -11,7 +11,7 @@ type Props = {};
 
 export const Projects = ({}: Props) => {
   const getFontStyle = useResponsiveFont();
-  const { isSmallDown, isMediumDown } = useResponsiveStack();
+  const { isMediumDown } = useResponsiveStack();
   return (
     <Box>
       <Box
