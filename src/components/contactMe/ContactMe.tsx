@@ -23,7 +23,7 @@ export const ContactMe = () => {
     handleSubmit(e);
   };
   return (
-    <Box>
+    <Box id="Contact">
       <Box
         sx={{
           display: "flex",

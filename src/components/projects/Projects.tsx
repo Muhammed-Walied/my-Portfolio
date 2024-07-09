@@ -13,7 +13,7 @@ export const Projects = ({}: Props) => {
   const getFontStyle = useResponsiveFont();
   const { isMediumDown } = useResponsiveStack();
   return (
-    <Box>
+    <Box id="Projects">
       <Box
         sx={{
           display: "flex",

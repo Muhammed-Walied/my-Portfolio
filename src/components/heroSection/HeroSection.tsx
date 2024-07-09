@@ -16,12 +16,14 @@ export const HeroSection = ({}: Props) => {
   const getFontStyle = useResponsiveFont();
   return (
     <Box
+      id="Home"
       sx={{
         display: "flex",
         flexDirection: isSmallDown ? "column-reverse" : "row",
         justifyContent: isSmallDown ? "center" : "space-between",
         alignItems: isSmallDown ? "center" : "flex-start",
         width: "100%",
+        flex: 1,
       }}
     >
       <Box sx={{ flex: 1, mt: isSmallDown ? 4 : 0 }}>

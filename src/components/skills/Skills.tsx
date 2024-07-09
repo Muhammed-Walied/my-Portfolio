@@ -13,7 +13,7 @@ export const Skills = ({}: Props) => {
   const getFontStyle = useResponsiveFont();
   const { isMediumDown } = useResponsiveStack();
   return (
-    <Box>
+    <Box id="Skills" sx={{ flex: 1 }}>
       <Box
         sx={{
           display: "flex",

@@ -41,6 +41,9 @@ importers:
       react:
         specifier: ^18.3.1
         version: 18.3.1
+      react-anchor-link-smooth-scroll:
+        specifier: ^1.0.12
+        version: 1.0.12
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
@@ -54,6 +57,9 @@ importers:
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
+      '@types/react-anchor-link-smooth-scroll':
+        specifier: ^1.0.5
+        version: 1.0.5
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
@@ -832,6 +838,9 @@ packages:
 
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
+
+  '@types/react-anchor-link-smooth-scroll@1.0.5':
+    resolution: {integrity: sha512-/OYQGmPMQ5IkEhQpiOtaMjOovdG8Vwr4UmCyIN7AiBoTvcAa5drg5Lizy9Bdz/WAnXFWj8xnQPwIxUWsVZUuew==}
 
   '@types/react-dom@18.3.0':
     resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
@@ -2765,6 +2774,9 @@ packages:
   re2@1.21.3:
     resolution: {integrity: sha512-GI+KoGkHT4kxTaX+9p0FgNB1XUnCndO9slG5qqeEoZ7kbf6Dk6ohQVpmwKVeSp7LPLn+g6Q3BaCopz4oHuBDuQ==}
 
+  react-anchor-link-smooth-scroll@1.0.12:
+    resolution: {integrity: sha512-aaY+9X0yh8YnC0jBfoTKpsiCLdO/Y6pCltww+VB+NnTBPDOvnIdnp1AlazajsDitc1j+cVSQ+yNtaVeTIMQbxw==}
+
   react-dom@18.3.1:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
@@ -4172,6 +4184,10 @@ snapshots:
   '@types/parse-json@4.0.2': {}
 
   '@types/prop-types@15.7.12': {}
+
+  '@types/react-anchor-link-smooth-scroll@1.0.5':
+    dependencies:
+      '@types/react': 18.3.3
 
   '@types/react-dom@18.3.0':
     dependencies:
@@ -6404,6 +6420,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
     optional: true
+
+  react-anchor-link-smooth-scroll@1.0.12: {}
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:

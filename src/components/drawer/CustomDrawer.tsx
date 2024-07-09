@@ -1,54 +1,117 @@
-import   Typography  from '@mui/material/Typography';
-import List from "@mui/material/List"
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from "@mui/material/ListItemButton"
-import Divider from "@mui/material/Divider"
-import ListItemText from "@mui/material/ListItemText"
-import Drawer from '@mui/material/Drawer';
-import  Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import Divider from "@mui/material/Divider";
+import ListItemText from "@mui/material/ListItemText";
+import Drawer from "@mui/material/Drawer";
+import Box from "@mui/material/Box";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+import { grey } from "@mui/material/colors";
+import { Button, IconButton } from "@mui/material";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import CustomTypography from "../typography/CustomTypography";
+import { useResponsiveFont } from "../../responsive/useResponsiveFont";
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 type Props = {
-container?: (() => HTMLElement) | undefined
-handelDrawerToggle: () => void;
-mobileOpen: boolean;
-navItems: string[];
-}
+  container?: (() => HTMLElement) | undefined;
+  handelDrawerToggle: () => void;
+  mobileOpen: boolean;
+  navItems: string[];
+};
 
-export const  CustomDrawer=({ container, handelDrawerToggle, mobileOpen, navItems }: Props)=> {
+export const CustomDrawer = ({
+  container,
+  handelDrawerToggle,
+  mobileOpen,
+  navItems,
+}: Props) => {
+  const getStyle = useResponsiveFont();
   return (
     <nav>
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handelDrawerToggle}
-          
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          <Box onClick={handelDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-        </Drawer>
-      </nav>
-  )
-}
+      <Drawer
+        container={container}
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handelDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          display: { xs: "block", sm: "none" },
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+        }}
+      >
+        <Box onClick={handelDrawerToggle} sx={{ textAlign: "center" }}>
+          <Typography variant="h6" sx={{ my: 2 }}>
+            My Portfolio
+          </Typography>
+          <Divider />
+          <List>
+            {navItems.map((item) => (
+              <ListItem key={item} disablePadding>
+                <AnchorLink
+                  offset={50}
+                  style={{ color: grey[600], textDecoration: "none" }}
+                  href={`#${item}`}
+                >
+                  <ListItemButton
+                    sx={{ textAlign: "center", textDecoration: "none" }}
+                  >
+                    <ListItemText primary={item} />
+                  </ListItemButton>
+                </AnchorLink>
+              </ListItem>
+            ))}
+          </List>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              px: 2,
+              alignItems: "center",
+            }}
+          >
+            <CustomTypography variant="subtitle1" sx={{ color: grey[600] }}>
+              Select Theme
+            </CustomTypography>
+            <IconButton color="inherit" disableRipple>
+              <LightModeIcon sx={{ color: grey[600] }} />
+            </IconButton>
+          </Box>
+          <Box
+            sx={{
+              my: 2,
+            }}
+          >
+            <Button
+              sx={{
+                color: grey[50],
+                bgcolor: grey[900],
+                borderRadius: "10px",
+                width: "90%",
+                ...getStyle("Body3"),
+                mx: "auto",
+                "&:hover": { bgcolor: grey[900] },
+              }}
+              disableRipple
+              variant="contained"
+            >
+              <a
+                style={{ color: grey[50], textDecoration: "none" }}
+                href="/MuhammedMahrousResume.pdf"
+                target="_blank"
+                download
+              >
+                Download cv
+              </a>
+            </Button>
+          </Box>
+        </Box>
+      </Drawer>
+    </nav>
+  );
+};

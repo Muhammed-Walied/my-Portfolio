@@ -7,18 +7,23 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { CustomDrawer } from "../drawer/CustomDrawer";
-//import LightModeIcon from "@mui/icons-material/LightMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+
 import { grey } from "@mui/material/colors";
+import { useResponsiveStack } from "../../responsive";
+import { useResponsiveFont } from "../../responsive/useResponsiveFont";
 interface Props {
   window?: () => Window;
   children?: React.ReactNode;
 }
-const navItems = ["Home", "Work", "About", "Contact"];
+const navItems = ["Home", "Skills", "Experience", "Projects", "Contact"];
 
 export const Header = (props: Props) => {
   const { window } = props;
+  const { isSmallDown } = useResponsiveStack();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const getStyle = useResponsiveFont();
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -57,12 +62,59 @@ export const Header = (props: Props) => {
             {"<Wello />"}
           </Typography>
 
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box sx={{ display: { xs: "none", sm: "block" }, mr: 2 }}>
             {navItems.map((item) => (
-              <Button disableRipple key={item} sx={{ color: grey[600] }}>
-                {item}
-              </Button>
+              <AnchorLink
+                offset={50}
+                style={{ color: grey[600], marginRight: 5, marginLeft: 5 }}
+                href={`#${item}`}
+              >
+                <Button
+                  disableRipple
+                  key={item}
+                  sx={{ color: grey[600], ...getStyle("Body3") }}
+                >
+                  {item}
+                </Button>
+              </AnchorLink>
             ))}
+          </Box>
+          <Box
+            sx={{
+              display: isSmallDown ? "none" : "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+            }}
+          >
+            <IconButton
+              color="inherit"
+              sx={{ mr: 2, display: "none" }}
+              disableRipple
+            >
+              <LightModeIcon sx={{ color: grey[600] }} />
+            </IconButton>
+            <Button
+              sx={{
+                color: grey[50],
+                bgcolor: grey[900],
+                borderRadius: "10px",
+                px: 2,
+                ...getStyle("Body3"),
+
+                "&:hover": { bgcolor: grey[900] },
+              }}
+              disableRipple
+              variant="contained"
+            >
+              <a
+                style={{ color: grey[50], textDecoration: "none" }}
+                href="/MuhammedMahrousResume.pdf"
+                target="_blank"
+                download
+              >
+                Download cv
+              </a>
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
