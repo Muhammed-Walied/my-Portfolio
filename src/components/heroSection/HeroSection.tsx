@@ -38,7 +38,7 @@ export const HeroSection = ({}: Props) => {
         </CustomTypography>
         <CustomTypography
           sx={{
-            width: "80%",
+            width: isSmallDown?"100%":"80%",
             ...getFontStyle("Body2"),
           }}
         >
@@ -124,7 +124,7 @@ export const HeroSection = ({}: Props) => {
             border: 8,
             borderColor: "transparent",
             backgroundColor: grey[200],
-            top: { md: "auto", "max-md": "5px" },
+            top: { md: 5 },
             bottom: { xs: "auto", md: 0 },
             right: { xs: "auto", md: 0 },
           }}

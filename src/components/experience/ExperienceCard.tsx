@@ -64,7 +64,7 @@ export const ExperienceCard = ({}: Props) => {
           fontWeight: "400",
           color: grey[700],
 
-          width: isSmallDown ? "90%" : "50%",
+          width: isSmallDown ? "100%" : "50%",
           marginTop: 1,
           marginLeft: "auto",
           marginRight: "auto",
