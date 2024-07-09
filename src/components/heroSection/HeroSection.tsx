@@ -1,4 +1,4 @@
-import { Avatar } from "@mui/material";
+import { Avatar, IconButton, Tooltip } from "@mui/material";
 import Box from "@mui/material/Box";
 import CustomTypography from "../typography/CustomTypography";
 import { green, grey } from "@mui/material/colors";
@@ -6,6 +6,8 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { GrStatusGoodSmall } from "react-icons/gr";
 import { useResponsiveStack } from "../../responsive";
 import { useResponsiveFont } from "../../responsive/useResponsiveFont";
+import { FaGithub } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 
 type Props = {};
 
@@ -77,13 +79,54 @@ export const HeroSection = ({}: Props) => {
             Available for new projects
           </CustomTypography>
         </Box>
+
+        <Tooltip placement="bottom" title="GitHub">
+          <IconButton>
+            <FaGithub />
+          </IconButton>
+        </Tooltip>
+
+        <Tooltip placement="bottom" title="LinkedIn">
+          <IconButton>
+            <FaLinkedin />
+          </IconButton>
+        </Tooltip>
       </Box>
-      <Box>
+      <Box
+        sx={{
+          position: "relative",
+          height: { xs: "300px", md: "360px" },
+          width: { xs: "280px", md: "320px" },
+        }}
+      >
         <Avatar
           variant="square"
-          sx={{ width: 250, height: 250, boxShadow: " 0px 0px 10px 0px #000" }}
+          sx={{
+            position: "absolute",
+            zIndex: 10,
+            height: { xs: "280px", md: "320px" },
+            width: { xs: "240px", md: "280px" },
+            border: 8,
+
+            left: { xs: "5px", md: "0" },
+            top: { md: "0" },
+            objectFit: "cover",
+          }}
           src="/MyImage.jpg"
         />
+        <Box
+          sx={{
+            position: "absolute",
+            height: { xs: "280px", md: "320px" },
+            width: "280px",
+            border: 8,
+            borderColor: "transparent",
+            backgroundColor: grey[200],
+            top: { md: "auto", "max-md": "5px" },
+            bottom: { xs: "auto", md: 0 },
+            right: { xs: "auto", md: 0 },
+          }}
+        ></Box>
       </Box>
     </Box>
   );

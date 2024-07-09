@@ -7,7 +7,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { CustomDrawer } from "../drawer/CustomDrawer";
-import LightModeIcon from "@mui/icons-material/LightMode";
+//import LightModeIcon from "@mui/icons-material/LightMode";
 import { grey } from "@mui/material/colors";
 interface Props {
   window?: () => Window;
@@ -64,29 +64,6 @@ export const Header = (props: Props) => {
               </Button>
             ))}
           </Box>
-
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            disableRipple
-            sx={{ display: { xl: "none" }, mx: "25px" }}
-          >
-            <LightModeIcon sx={{ color: grey[600] }} />
-          </IconButton>
-          <Button
-            sx={{
-              color: grey[50],
-              bgcolor: grey[900],
-              borderRadius: "20px",
-              "&:hover": { bgcolor: grey[900] },
-            }}
-            disableRipple
-            variant="contained"
-          >
-            CV
-          </Button>
         </Toolbar>
       </AppBar>
       <CustomDrawer

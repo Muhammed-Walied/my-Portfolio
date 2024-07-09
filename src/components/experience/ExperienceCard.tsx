@@ -24,7 +24,7 @@ export const ExperienceCard = ({}: Props) => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: isSmallDown ? "column" : "row",
           justifyContent: "space-between",
         }}
       >

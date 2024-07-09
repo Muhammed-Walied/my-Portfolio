@@ -5,7 +5,7 @@ export const projectsData = [
     description:
       " Built cross-platform e-commerce application using React Native. Coffee ordering mobile appli- cation provides seamless user experience and includes Face ID security features for authentication",
     tech: "React Native, Firebase",
-    image: "/public/Project1.jpg",
+    image: "/Project1.jpg",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const projectsData = [
     description:
       " Created positive and open communication platform for students within Faculty of Science,enhanced with clear and actionable user stories in mind, ensuring app effectively fulfills purpose.",
     tech: "React Native, Redux",
-    image: "/public/Project2.jpeg",
+    image: "/Project2.jpeg",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const projectsData = [
     description:
       "Ultimate movie companion app, planned to cater to all movie-related needs. Whether casual moviegoer or die-hard film enthusiast, MovieMingle enhances cinematic experience.",
     tech: "React Native, Expo",
-    image: "/public/Project3.jpeg",
+    image: "/Project3.jpeg",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const projectsData = [
     description:
       "Developed to streamline and enhance learning experience for bothstudents and educators. Developed as graduation project for students in Mathematics department at Faculty ofScience, Cairo University.",
     tech: "React.js, Mui ,Redux",
-    image: "/public/Project1.jpg",
+    image: "/Project1.jpg",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const projectsData = [
     description:
       " Built web application using React.js, MongoDB, Express, and Node.js. Developed car rental website using MERN stack, achieving several notable accomplishments.",
     tech: "React.js, Express, NodeJs",
-    image: "/public/Project2.jpeg",
+    image: "/Project2.jpeg",
   },
   {
     id: 6,
@@ -45,6 +45,6 @@ export const projectsData = [
     description:
       " Developed game using OpenGL framework in Java and achieved impressive milestones.Implemented multiplayer functionality",
     tech: "Java, OpenGL",
-    image: "/public/Project3.jpeg",
+    image: "/Project3.jpeg",
   },
 ];

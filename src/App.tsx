@@ -4,6 +4,7 @@ import { HeroSection } from "./components/heroSection/HeroSection";
 import { Skills } from "./components/skills/Skills";
 import { Experience } from "./components/experience/Experience";
 import { Projects } from "./components/projects/Projects";
+import { ContactMe } from "./components/contactMe/ContactMe";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
         <Divider sx={{ width: "100%" }} />
         <br />
         <Projects />
+        <br />
+        <Divider sx={{ width: "100%" }} />
+        <br />
+        <ContactMe />
       </Box>
     </Box>
   );
