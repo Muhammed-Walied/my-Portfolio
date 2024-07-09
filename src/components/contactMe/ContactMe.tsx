@@ -63,7 +63,7 @@ export const ContactMe = () => {
             marginTop: 1,
             color: grey[600],
             textAlign: "center",
-            width: "50%",
+            width: isSmallDown ? "100%" : "50%",
           }}
         >
           What’s next? Feel free to reach out to me if you're looking for a
