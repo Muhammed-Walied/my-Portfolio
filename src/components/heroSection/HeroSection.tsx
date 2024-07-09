@@ -83,13 +83,13 @@ export const HeroSection = ({}: Props) => {
         </Box>
 
         <Tooltip placement="bottom" title="GitHub">
-          <IconButton>
+          <IconButton  target="_blank" href="https://github.com/Muhammed-Walied">
             <FaGithub />
           </IconButton>
         </Tooltip>
 
         <Tooltip placement="bottom" title="LinkedIn">
-          <IconButton>
+          <IconButton target="_blank" href="https://linkedin.com/in/muhammed-walied-281213277">
             <FaLinkedin />
           </IconButton>
         </Tooltip>

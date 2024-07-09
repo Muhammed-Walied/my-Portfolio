@@ -14,9 +14,11 @@ type Props = {
   title: string;
   description: string;
   tech: string;
+  livePreview:string;
+  githubLink:string;
 };
 
-export const ProjectCard = ({ image, title, description, tech }: Props) => {
+export const ProjectCard = ({ image, title, description, tech ,livePreview,  githubLink}: Props) => {
   const getFontStyle = useResponsiveFont();
 
   return (
@@ -97,12 +99,12 @@ export const ProjectCard = ({ image, title, description, tech }: Props) => {
         </Box>
         <CardActions sx={{ justifyContent: "space-evenly" }}>
           <Tooltip placement="top" title="GitHub">
-            <IconButton aria-label="">
-              <FaGithub color={grey[900]} size={20} />
+            <IconButton  target="_blank" href={githubLink}disabled={githubLink === ""} aria-label="">
+              <FaGithub color={githubLink === ""?grey[400]:grey[900]} size={20} />
               <CustomTypography
                 sx={{
                   textDecoration: "underline",
-                  color: grey[900],
+                  color:githubLink === ""?grey[400]: grey[900],
                   fontSize: "12px",
                   lineHeight: "18px",
                   fontWeight: "300",
@@ -114,12 +116,12 @@ export const ProjectCard = ({ image, title, description, tech }: Props) => {
             </IconButton>
           </Tooltip>
           <Tooltip placement="top" title="Link">
-            <IconButton aria-label="">
-              <FaLink color={grey[900]} size={20} />
+            <IconButton  target="_blank" href={livePreview}  disabled={livePreview === ""} aria-label="">
+              <FaLink color={livePreview === ""?grey[400]:grey[900]} size={20} />
               <CustomTypography
                 sx={{
                   textDecoration: "underline",
-                  color: grey[900],
+                  color:livePreview=== ""?grey[400]: grey[900],
                   fontSize: "12px",
                   lineHeight: "18px",
                   fontWeight: "300",

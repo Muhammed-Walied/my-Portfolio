@@ -67,6 +67,8 @@ export const Projects = ({}: Props) => {
                 title={item.title}
                 description={item.description}
                 tech={item.tech}
+                githubLink={item.githubLink}
+                livePreview={item.livePreview}
               />
             </Grid>
           ))}

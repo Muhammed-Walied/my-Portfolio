@@ -7,6 +7,7 @@ import { grey } from "@mui/material/colors";
 import CustomTypography from "../typography/CustomTypography";
 import { useResponsiveFont } from "../../responsive/useResponsiveFont";
 import { useState } from "react";
+import ContactAnimation from "../../assets/contact.json"
 export const ContactMe = () => {
   const { isSmallDown } = useResponsiveStack();
   const getFontStyle = useResponsiveFont();
@@ -23,7 +24,7 @@ export const ContactMe = () => {
     handleSubmit(e);
   };
   return (
-    <Box id="Contact">
+    <Box id="Contact" >
       <Box
         sx={{
           display: "flex",
@@ -70,7 +71,7 @@ export const ContactMe = () => {
           developer, have a query, or simply want to connect.
         </CustomTypography>
       </Box>
-
+      <Box sx={{display:"flex",flexDirection:"row" , width:"100%", justifyContent:"center",alignItems:"center"}}>
       <Box
         maxWidth="md"
         component="form"
@@ -158,6 +159,15 @@ export const ContactMe = () => {
             Your message has been sent successfully 👌
           </p>
         )}
+         
+      </Box>
+      <Box display={isSmallDown?"none":"block"} >
+      <Lottie
+            className="contact-animation"
+            style={{ height: 355 }}
+            animationData={ContactAnimation}
+          />
+      </Box>
       </Box>
     </Box>
   );

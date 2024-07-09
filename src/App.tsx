@@ -30,6 +30,7 @@ function App() {
         <Divider sx={{ width: "100%" }} />
         <br />
         <ContactMe />
+        <br />
       </Box>
     </Box>
   );
