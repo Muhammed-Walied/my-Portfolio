@@ -1,41 +1,40 @@
-import CardMedia from "@mui/material/CardMedia";
-import Card from "@mui/material/Card";
-import Box from "@mui/material/Box";
-import CustomTypography from "../typography/CustomTypography";
-import CardActions from "@mui/material/CardActions";
-import { grey } from "@mui/material/colors";
-import { FaGithub, FaLink } from "react-icons/fa";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
-import { useResponsiveFont } from "../../responsive/useResponsiveFont";
+import CardMedia from '@mui/material/CardMedia';
+import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
+import CustomTypography from '../typography/CustomTypography';
+import CardActions from '@mui/material/CardActions';
+import { grey } from '@mui/material/colors';
+import { FaGithub, FaLink } from 'react-icons/fa';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import { useResponsiveFont } from '../../responsive/useResponsiveFont';
 
 type Props = {
   image: string;
   title: string;
   description: string;
   tech: string;
-  livePreview:string;
-  githubLink:string;
+  livePreview: string;
+  githubLink: string;
 };
 
-export const ProjectCard = ({ image, title, description, tech ,livePreview,  githubLink}: Props) => {
+export const ProjectCard = ({ image, title, description, tech, livePreview, githubLink }: Props) => {
   const getFontStyle = useResponsiveFont();
 
   return (
     <Box
       sx={{
-        bgcolor: "#FFFFFF",
+        bgcolor: 'background.default',
         minWidth: 200,
         maxWidth: 320,
-        height: "auto",
+        height: 'auto',
         borderRadius: 10,
-        mx: "auto",
-        boxShadow: "none",
-        transition: "all 0.5s ease",
-        "&:hover": {
-          boxShadow:
-            "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-          transform: "scale(1.05)",
+        mx: 'auto',
+        boxShadow: 'none',
+        transition: 'all 0.5s ease',
+        '&:hover': {
+          boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+          transform: 'scale(1.05)',
           rotate: `3deg`,
         },
       }}
@@ -46,8 +45,8 @@ export const ProjectCard = ({ image, title, description, tech ,livePreview,  git
           src={image}
           alt="ProjectImage"
           sx={{
-            width: "100%",
-            height: "120px",
+            width: '100%',
+            height: '120px',
             borderTopLeftRadius: 10,
             borderTopRightRadius: 10,
           }}
@@ -55,18 +54,18 @@ export const ProjectCard = ({ image, title, description, tech ,livePreview,  git
         <Box sx={{ p: 1 }}>
           <CustomTypography
             sx={{
-              ...getFontStyle("Subtitle"),
-              fontWeight: "500",
-              textTransform: "capitalize",
-              color: grey[900],
+              ...getFontStyle('Subtitle'),
+              fontWeight: '500',
+              textTransform: 'capitalize',
+              color: 'grey.900',
             }}
           >
             {title}
           </CustomTypography>
           <CustomTypography
             sx={{
-              ...getFontStyle("Body3"),
-              fontWeight: "400",
+              ...getFontStyle('Body3'),
+              fontWeight: '400',
               color: grey[600],
             }}
           >
@@ -74,22 +73,22 @@ export const ProjectCard = ({ image, title, description, tech ,livePreview,  git
           </CustomTypography>
           <CustomTypography
             sx={{
-              fontSize: "12px",
-              lineHeight: "20px",
-              fontWeight: "600",
-              color: grey[900],
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
+              fontSize: '12px',
+              lineHeight: '20px',
+              fontWeight: '600',
+              color: 'grey.900',
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
               marginTop: 1,
             }}
           >
-            Tech stack :{" "}
+            Tech stack :{' '}
             <CustomTypography
               sx={{
-                fontSize: "12px",
-                lineHeight: "18px",
-                fontWeight: "300",
+                fontSize: '12px',
+                lineHeight: '18px',
+                fontWeight: '300',
                 color: grey[600],
               }}
             >
@@ -97,17 +96,17 @@ export const ProjectCard = ({ image, title, description, tech ,livePreview,  git
             </CustomTypography>
           </CustomTypography>
         </Box>
-        <CardActions sx={{ justifyContent: "space-evenly" }}>
+        <CardActions sx={{ justifyContent: 'space-evenly' }}>
           <Tooltip placement="top" title="GitHub">
-            <IconButton  target="_blank" href={githubLink}disabled={githubLink === ""} aria-label="">
-              <FaGithub color={githubLink === ""?grey[400]:grey[900]} size={20} />
+            <IconButton target="_blank" href={githubLink} disabled={githubLink === ''} aria-label="">
+              <FaGithub color={githubLink === '' ? 'grey.400' : 'grey.900'} size={20} />
               <CustomTypography
                 sx={{
-                  textDecoration: "underline",
-                  color:githubLink === ""?grey[400]: grey[900],
-                  fontSize: "12px",
-                  lineHeight: "18px",
-                  fontWeight: "300",
+                  textDecoration: 'underline',
+                  color: githubLink === '' ? 'grey.400' : 'grey.900',
+                  fontSize: '12px',
+                  lineHeight: '18px',
+                  fontWeight: '300',
                   marginLeft: 1,
                 }}
               >
@@ -116,15 +115,15 @@ export const ProjectCard = ({ image, title, description, tech ,livePreview,  git
             </IconButton>
           </Tooltip>
           <Tooltip placement="top" title="Link">
-            <IconButton  target="_blank" href={livePreview}  disabled={livePreview === ""} aria-label="">
-              <FaLink color={livePreview === ""?grey[400]:grey[900]} size={20} />
+            <IconButton target="_blank" href={livePreview} disabled={livePreview === ''} aria-label="">
+              <FaLink color={livePreview === '' ? 'grey.400' : 'grey.900'} size={20} />
               <CustomTypography
                 sx={{
-                  textDecoration: "underline",
-                  color:livePreview=== ""?grey[400]: grey[900],
-                  fontSize: "12px",
-                  lineHeight: "18px",
-                  fontWeight: "300",
+                  textDecoration: 'underline',
+                  color: livePreview === '' ? 'grey.400' : 'grey.900',
+                  fontSize: '12px',
+                  lineHeight: '18px',
+                  fontWeight: '300',
                   marginLeft: 1,
                 }}
               >

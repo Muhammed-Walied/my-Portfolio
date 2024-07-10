@@ -1,1 +1,1 @@
-export * from "./useResponsiveStack";
+export * from './useResponsiveStack';
