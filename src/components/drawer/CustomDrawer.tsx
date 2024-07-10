@@ -8,10 +8,12 @@ import Drawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { grey } from "@mui/material/colors";
-import { Button, IconButton } from "@mui/material";
-import LightModeIcon from "@mui/icons-material/LightMode";
+import { Button, IconButton, Tooltip, useTheme } from "@mui/material";
 import CustomTypography from "../typography/CustomTypography";
 import { useResponsiveFont } from "../../responsive/useResponsiveFont";
+import React from "react";
+import { ThemeContext } from "../../theme/ThemeContext";
+import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
 
 const drawerWidth = 250;
 
@@ -29,6 +31,10 @@ export const CustomDrawer = ({
   navItems,
 }: Props) => {
   const getStyle = useResponsiveFont();
+  const theme = useTheme();
+  const themeContext = React.useContext(ThemeContext);
+  if (!themeContext) return null;
+
   return (
     <nav>
       <Drawer
@@ -42,23 +48,27 @@ export const CustomDrawer = ({
         sx={{
           display: { xs: "block", sm: "none" },
           "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+         
         }}
       >
         <Box onClick={handelDrawerToggle} sx={{ textAlign: "center" }}>
-          <Typography variant="h6" sx={{ my: 2 }}>
-            My Portfolio
+          <Typography  variant="h6"  component="div" sx={{ m: 2 ,textAlign:"left",color:"grey.600"}} >
+          
+            {"<Wello />"}
+         
           </Typography>
-          <Divider />
+         
           <List>
             {navItems.map((item) => (
-              <ListItem key={item} disablePadding>
+              <ListItem  sx={{ display: "block" , textAlign:"left" }} key={item} disablePadding>
                 <AnchorLink
                   offset={50}
-                  style={{ color: grey[600], textDecoration: "none" }}
+                  style={{ color: "grey.600", textDecoration: "none" }}
                   href={`#${item}`}
                 >
                   <ListItemButton
-                    sx={{ textAlign: "center", textDecoration: "none" }}
+                    sx={{ textAlign: "left", textDecoration: "none",color:"grey.600",  width: "95%",
+                    marginX: "auto",  }}
                   >
                     <ListItemText primary={item} />
                   </ListItemButton>
@@ -75,12 +85,23 @@ export const CustomDrawer = ({
               alignItems: "center",
             }}
           >
-            <CustomTypography variant="subtitle1" sx={{ color: grey[600] }}>
-              Select Theme
+            <CustomTypography variant="subtitle1" sx={{ color: "grey.600" }}>
+              Change Theme
             </CustomTypography>
-            <IconButton color="inherit" disableRipple>
-              <LightModeIcon sx={{ color: grey[600] }} />
-            </IconButton>
+            <Tooltip title={`Change ${themeContext?.currentTheme?.palette.mode} Mode`}>
+              <IconButton
+                onClick={themeContext?.toggleTheme}
+                color="inherit"
+                sx={{ mr: 2 }}
+                disableRipple
+              >
+                {theme.palette.mode === "dark" ? (
+                  <LightModeOutlined />
+                ) : (
+                  <DarkModeOutlined color="action" />
+                )}
+              </IconButton>
+            </Tooltip>
           </Box>
           <Box
             sx={{
