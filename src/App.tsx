@@ -6,7 +6,6 @@ import { Experience } from './components/experience/Experience';
 import { Projects } from './components/projects/Projects';
 import { ContactMe } from './components/contactMe/ContactMe';
 import { CssBaseline, ThemeProvider as MuiThemeProvider } from '@mui/material';
-import { darkTheme, lightTheme } from './theme/theme';
 import { ThemeContextProvider } from './theme/ThemeContext';
 
 function App() {
@@ -18,21 +17,13 @@ function App() {
         <Box component="main" sx={{ height: '100vh' }}>
           <Toolbar />
           <HeroSection />
-
           <Divider sx={{ width: '100%' }} />
-
           <Skills />
-
           <Divider sx={{ width: '100%' }} />
-
           <Experience />
-
           <Divider sx={{ width: '100%' }} />
-
           <Projects />
-
           <Divider sx={{ width: '100%' }} />
-
           <ContactMe />
         </Box>
       </Box>

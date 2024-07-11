@@ -165,7 +165,7 @@ export const ContactMe = () => {
           )}
         </Box>
         <Box display={isSmallDown ? 'none' : 'block'}>
-          <Lottie className="contact-animation" style={{ height: 355 }} animationData={ContactAnimation} />
+          <Lottie  style={{ height: 355 }} animationData={ContactAnimation} />
         </Box>
       </Box>
     </Box>

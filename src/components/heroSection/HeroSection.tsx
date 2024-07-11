@@ -1,14 +1,13 @@
 import { Avatar, IconButton, Tooltip } from '@mui/material';
 import Box from '@mui/material/Box';
 import CustomTypography from '../typography/CustomTypography';
-import { green, grey } from '@mui/material/colors';
 import { MdOutlineLocationOn } from 'react-icons/md';
-import { GrStatusGoodSmall } from 'react-icons/gr';
 import { useResponsiveStack } from '../../responsive';
 import { useResponsiveFont } from '../../responsive/useResponsiveFont';
 import { FaGithub } from 'react-icons/fa6';
 import { FaLinkedin } from 'react-icons/fa6';
-
+import dotAnimation from '../../assets/dotAnimation.json';
+import Lottie from 'lottie-react';
 type Props = {};
 
 export const HeroSection = ({}: Props) => {
@@ -55,8 +54,7 @@ export const HeroSection = ({}: Props) => {
               display: 'flex',
               alignItems: 'center',
               ...getFontStyle('Body2'),
-              marginLeft: 'auto',
-              marginRight: 'auto',
+              marginLeft: 1,
             }}
           >
             <MdOutlineLocationOn style={{ marginRight: '10px' }} size={20} /> Cairo, Egypt
@@ -65,11 +63,12 @@ export const HeroSection = ({}: Props) => {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              marginLeft: '5px',
+
               ...getFontStyle('Body2'),
             }}
           >
-            <GrStatusGoodSmall style={{ marginRight: '10px' }} size={10} /> Available for new projects
+            <Lottie style={{ height: 40 }} animationData={dotAnimation} />
+            Available for new projects
           </CustomTypography>
         </Box>
 
@@ -98,32 +97,9 @@ export const HeroSection = ({}: Props) => {
       >
         <Avatar
           variant="square"
-          sx={{
-            position: 'absolute',
-            zIndex: 10,
-            height: { xs: '280px', md: '320px' },
-            width: { xs: '240px', md: '280px' },
-            border: 8,
-
-            left: { xs: '5px', md: '0' },
-            top: { md: '0' },
-            objectFit: 'cover',
-          }}
+          sx={{ width: 250, height: 250, boxShadow: ' 0px 0px 10px 0px #000', borderRadius: '50%' }}
           src="/MyImage.jpg"
         />
-        <Box
-          sx={{
-            position: 'absolute',
-            height: { xs: '280px', md: '320px' },
-            width: '280px',
-            border: 8,
-            borderColor: 'transparent',
-            backgroundColor: grey[200],
-            top: { md: 5 },
-            bottom: { xs: 'auto', md: 0 },
-            right: { xs: 'auto', md: 0 },
-          }}
-        ></Box>
       </Box>
     </Box>
   );
