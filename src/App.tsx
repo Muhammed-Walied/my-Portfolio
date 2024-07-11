@@ -5,7 +5,7 @@ import { Skills } from './components/skills/Skills';
 import { Experience } from './components/experience/Experience';
 import { Projects } from './components/projects/Projects';
 import { ContactMe } from './components/contactMe/ContactMe';
-import { CssBaseline, ThemeProvider as MuiThemeProvider } from '@mui/material';
+import { CssBaseline} from '@mui/material';
 import { ThemeContextProvider } from './theme/ThemeContext';
 
 function App() {
