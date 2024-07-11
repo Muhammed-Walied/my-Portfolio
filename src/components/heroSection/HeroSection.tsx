@@ -8,6 +8,7 @@ import { FaGithub } from 'react-icons/fa6';
 import { FaLinkedin } from 'react-icons/fa6';
 import dotAnimation from '../../assets/dotAnimation.json';
 import Lottie from 'lottie-react';
+import { AnimationText } from '../animation/AnimationText';
 type Props = {};
 
 export const HeroSection = ({}: Props) => {
@@ -15,15 +16,26 @@ export const HeroSection = ({}: Props) => {
   const getFontStyle = useResponsiveFont();
   return (
     <Box
-      id="Home"
+    id="Home"
+     sx={{ width: '100%',
+    backgroundColor: 'background.default',
+    p: 5,
+    height:"100vh",
+    scrollSnapAlign:"center",
+    justifyContent:"center",
+    alignItems:"center",
+    display:"flex"
+    }}>
+      
+ 
+    <Box
+     
       sx={{
         display: 'flex',
         flexDirection: isSmallDown ? 'column-reverse' : 'row',
         justifyContent: isSmallDown ? 'center' : 'space-between',
         alignItems: isSmallDown ? 'center' : 'flex-start',
-        width: '100%',
-        backgroundColor: 'background.default',
-        p: 5,
+       
       }}
     >
       <Box sx={{ flex: 1, mt: isSmallDown ? 4 : 0 }}>
@@ -35,7 +47,9 @@ export const HeroSection = ({}: Props) => {
             color: 'grey.900',
           }}
         >
-          Hi, I’m Muhammed 👋
+          <AnimationText text=' Hi, I’m Muhammed 👋'/>
+         
+          
         </CustomTypography>
         <CustomTypography
           sx={{
@@ -101,6 +115,7 @@ export const HeroSection = ({}: Props) => {
           src="/MyImage.jpg"
         />
       </Box>
+    </Box>
     </Box>
   );
 };

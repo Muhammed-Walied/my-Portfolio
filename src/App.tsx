@@ -7,15 +7,16 @@ import { Projects } from './components/projects/Projects';
 import { ContactMe } from './components/contactMe/ContactMe';
 import { CssBaseline} from '@mui/material';
 import { ThemeContextProvider } from './theme/ThemeContext';
-
+import './App.css'
 function App() {
   return (
     <ThemeContextProvider>
       <Box>
         <CssBaseline />
+        <Box sx={{scrollSnapAlign:"center"}}>
         <Header />
-        <Box component="main" sx={{ height: '100vh' }}>
-          <Toolbar />
+        </Box>
+        <Box component="main">
           <HeroSection />
           <Divider sx={{ width: '100%' }} />
           <Skills />

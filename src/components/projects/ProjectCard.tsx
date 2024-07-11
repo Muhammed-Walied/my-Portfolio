@@ -1,14 +1,34 @@
+import React from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
-import CustomTypography from '../typography/CustomTypography';
-import CardActions from '@mui/material/CardActions';
 import { grey } from '@mui/material/colors';
-import { FaGithub, FaLink } from 'react-icons/fa';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
 import { useResponsiveFont } from '../../responsive/useResponsiveFont';
+import { styled, useTheme } from '@mui/material/styles';
+import CustomTypography from '../typography/CustomTypography';
+import { Button, CardActions, IconButton, Tooltip } from '@mui/material';
+import { FaGithub, FaLink } from 'react-icons/fa';
 
+// Styling for the hover overlay
+const Overlay = styled(Box)(({ theme }) => ({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  backgroundColor: theme.palette.mode === 'dark' ? 'rgba(82, 84, 86, 0.7)' : 'rgba(22, 25, 32, 0.7)',
+  color: '#FFFFFF',
+  zindex: 10,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  opacity: 0,
+  transition: 'opacity 0.5s ease',
+  '&:hover': {
+    opacity: 1,
+  },
+}));
 type Props = {
   image: string;
   title: string;
@@ -20,119 +40,115 @@ type Props = {
 
 export const ProjectCard = ({ image, title, description, tech, livePreview, githubLink }: Props) => {
   const getFontStyle = useResponsiveFont();
-
+  const theme = useTheme();
   return (
-    <Box
+    <Card
       sx={{
-        bgcolor: 'background.default',
+        position: 'relative',
         minWidth: 200,
         maxWidth: 320,
+        p: 1,
         height: 'auto',
-        borderRadius: 10,
+        borderRadius: 5,
         mx: 'auto',
         boxShadow: 'none',
         transition: 'all 0.5s ease',
-        '&:hover': {
-          boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
-          transform: 'scale(1.05)',
-          rotate: `3deg`,
-        },
+        overflow: 'hidden', // Ensures the overlay doesn't extend outside the card
       }}
     >
-      <Card>
-        <CardMedia
-          component="img"
-          src={image}
-          alt="ProjectImage"
+      <CardMedia
+        component="img"
+        src={image}
+        alt="Project image"
+        sx={{
+          width: '99%',
+          mx: 'auto',
+          height: '120px',
+          borderRadius: 5,
+        }}
+      />
+      <Box sx={{ p: 1 }}>
+        <CustomTypography
           sx={{
-            width: '100%',
-            height: '120px',
-            borderTopLeftRadius: 10,
-            borderTopRightRadius: 10,
+            ...getFontStyle('Body2'),
+            fontWeight: '500',
+            textTransform: 'capitalize',
+            color: 'grey.900',
           }}
-        />
-        <Box sx={{ p: 1 }}>
-          <CustomTypography
-            sx={{
-              ...getFontStyle('Subtitle'),
-              fontWeight: '500',
-              textTransform: 'capitalize',
-              color: 'grey.900',
-            }}
-          >
-            {title}
-          </CustomTypography>
-          <CustomTypography
-            sx={{
-              ...getFontStyle('Body3'),
-              fontWeight: '400',
-              color: grey[600],
-            }}
-          >
-            {description}
-          </CustomTypography>
-          <CustomTypography
-            sx={{
-              fontSize: '12px',
-              lineHeight: '20px',
-              fontWeight: '600',
-              color: 'grey.900',
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginTop: 1,
-            }}
-          >
-            Tech stack :{' '}
-            <CustomTypography
-              sx={{
-                fontSize: '12px',
-                lineHeight: '18px',
-                fontWeight: '300',
-                color: grey[600],
-              }}
-            >
-              {tech}
-            </CustomTypography>
-          </CustomTypography>
-        </Box>
-        <CardActions sx={{ justifyContent: 'space-evenly' }}>
-          <Tooltip placement="top" title="GitHub">
-            <IconButton target="_blank" href={githubLink} disabled={githubLink === ''} aria-label="">
-              <FaGithub color={githubLink === '' ? 'grey.400' : 'grey.900'} size={20} />
-              <CustomTypography
-                sx={{
-                  textDecoration: 'underline',
-                  color: githubLink === '' ? 'grey.400' : 'grey.900',
-                  fontSize: '12px',
-                  lineHeight: '18px',
-                  fontWeight: '300',
-                  marginLeft: 1,
-                }}
-              >
-                View Code
-              </CustomTypography>
-            </IconButton>
-          </Tooltip>
-          <Tooltip placement="top" title="Link">
-            <IconButton target="_blank" href={livePreview} disabled={livePreview === ''} aria-label="">
-              <FaLink color={livePreview === '' ? 'grey.400' : 'grey.900'} size={20} />
-              <CustomTypography
-                sx={{
-                  textDecoration: 'underline',
-                  color: livePreview === '' ? 'grey.400' : 'grey.900',
-                  fontSize: '12px',
-                  lineHeight: '18px',
-                  fontWeight: '300',
-                  marginLeft: 1,
-                }}
-              >
-                Live Preview
-              </CustomTypography>
-            </IconButton>
-          </Tooltip>
-        </CardActions>
-      </Card>
-    </Box>
+        >
+          {title}
+        </CustomTypography>
+        <CustomTypography
+          sx={{
+            ...getFontStyle('Body3'),
+            fontWeight: '400',
+            color: grey[600],
+          }}
+        >
+          {description}
+        </CustomTypography>
+      </Box>
+      {livePreview ||
+        (githubLink && (
+          <Overlay>
+            <CardActions sx={{ justifyContent: 'space-evenly' }}>
+              <Tooltip placement="top" title="GitHub">
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: 'background.paper',
+                    borderRadius: '25px',
+                    '&:hover': { backgroundColor: 'background.paper' },
+                  }}
+                  target="_blank"
+                  href={githubLink}
+                  aria-label=""
+                >
+                  <FaGithub style={{ color: theme.palette.mode === 'dark' ? 'white' : 'black' }} size={20} />
+                  <CustomTypography
+                    sx={{
+                      color: 'grey.900',
+                      fontSize: '12px',
+                      lineHeight: '18px',
+                      fontWeight: '300',
+                      marginLeft: 1,
+                      width: '100%',
+                    }}
+                  >
+                    github
+                  </CustomTypography>
+                </Button>
+              </Tooltip>
+              <Tooltip placement="top" title="Link">
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: 'background.paper',
+                    borderRadius: '25px',
+                    '&:hover': { backgroundColor: 'background.paper' },
+                  }}
+                  target="_blank"
+                  href={livePreview}
+                  aria-label=""
+                >
+                  <FaLink style={{ color: theme.palette.mode === 'dark' ? 'white' : 'black' }} size={20} />
+                  <CustomTypography
+                    sx={{
+                      color: 'grey.900',
+                      fontSize: '12px',
+                      lineHeight: '18px',
+                      fontWeight: '300',
+                      marginLeft: 1,
+                      width: '100%',
+                    }}
+                  >
+                    demo
+                  </CustomTypography>
+                </Button>
+              </Tooltip>
+            </CardActions>
+          </Overlay>
+        ))}
+    </Card>
   );
 };

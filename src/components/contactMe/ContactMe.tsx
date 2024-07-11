@@ -24,7 +24,17 @@ export const ContactMe = () => {
     handleSubmit(e);
   };
   return (
-    <Box id="Contact" sx={{ backgroundColor: 'background.default', p: 5 }}>
+    <Box
+      id="Contact"
+      sx={{
+        backgroundColor: 'background.default',
+        p: 5,
+       
+        scrollSnapAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
@@ -165,7 +175,7 @@ export const ContactMe = () => {
           )}
         </Box>
         <Box display={isSmallDown ? 'none' : 'block'}>
-          <Lottie  style={{ height: 355 }} animationData={ContactAnimation} />
+          <Lottie style={{ height: 355 }} animationData={ContactAnimation} />
         </Box>
       </Box>
     </Box>

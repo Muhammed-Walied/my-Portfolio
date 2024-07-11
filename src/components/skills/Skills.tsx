@@ -12,7 +12,10 @@ export const Skills = ({}: Props) => {
   const getFontStyle = useResponsiveFont();
   const { isMediumDown } = useResponsiveStack();
   return (
-    <Box id="Skills" sx={{ backgroundColor: 'background.paper', py: 5 }}>
+    <Box id="Skills" sx={{ backgroundColor: 'background.paper', p: 5 , 
+    scrollSnapAlign:"center",
+    display:"flex",
+    flexDirection:"column"}}>
       <Box
         sx={{
           display: 'flex',
