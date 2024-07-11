@@ -1,4 +1,4 @@
-import { Box, Divider, Toolbar } from '@mui/material';
+import { Box, Divider } from '@mui/material';
 import { Header } from './components/header/Header';
 import { HeroSection } from './components/heroSection/HeroSection';
 import { Skills } from './components/skills/Skills';

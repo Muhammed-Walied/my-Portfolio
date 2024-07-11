@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import { grey } from '@mui/material/colors';
 import CustomTypography from '../typography/CustomTypography';
 import { ExperienceCard } from './ExperienceCard';
 import { useResponsiveFont } from '../../responsive/useResponsiveFont';

@@ -1,4 +1,3 @@
-import React from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
@@ -6,7 +5,7 @@ import { grey } from '@mui/material/colors';
 import { useResponsiveFont } from '../../responsive/useResponsiveFont';
 import { styled, useTheme } from '@mui/material/styles';
 import CustomTypography from '../typography/CustomTypography';
-import { Button, CardActions, IconButton, Tooltip } from '@mui/material';
+import { Button, CardActions, Tooltip } from '@mui/material';
 import { FaGithub, FaLink } from 'react-icons/fa';
 
 // Styling for the hover overlay
@@ -86,6 +85,30 @@ export const ProjectCard = ({ image, title, description, tech, livePreview, gith
           }}
         >
           {description}
+        </CustomTypography>
+        <CustomTypography
+          sx={{
+            fontSize: '12px',
+            lineHeight: '20px',
+            fontWeight: '600',
+            color: 'grey.900',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginTop: 1,
+          }}
+        >
+          Tech stack :{' '}
+          <CustomTypography
+            sx={{
+              fontSize: '12px',
+              lineHeight: '18px',
+              fontWeight: '300',
+              color: grey[600],
+            }}
+          >
+            {tech}
+          </CustomTypography>
         </CustomTypography>
       </Box>
       {livePreview ||
