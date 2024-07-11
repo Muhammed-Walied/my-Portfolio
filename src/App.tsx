@@ -8,10 +8,11 @@ import { ContactMe } from './components/contactMe/ContactMe';
 import { CssBaseline} from '@mui/material';
 import { ThemeContextProvider } from './theme/ThemeContext';
 import './App.css'
+import SmoothScroll from './components/smoothScroll/SmoothScroll';
 function App() {
   return (
     <ThemeContextProvider>
-      <Box>
+      <SmoothScroll>
         <CssBaseline />
         <Box sx={{scrollSnapAlign:"center"}}>
         <Header />
@@ -27,7 +28,7 @@ function App() {
           <Divider sx={{ width: '100%' }} />
           <ContactMe />
         </Box>
-      </Box>
+      </SmoothScroll>
     </ThemeContextProvider>
   );
 }

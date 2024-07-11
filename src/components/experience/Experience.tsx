@@ -11,11 +11,17 @@ export const Experience = ({}: Props) => {
   const { isMediumDown } = useResponsiveStack();
 
   return (
-    <Box id="Experience" sx={{ backgroundColor: 'background.default', p: 5,  
-    scrollSnapAlign:"center",
-   
-    display:"flex",
-    flexDirection:"column" }}>
+    <Box
+      id="Experience"
+      sx={{
+        backgroundColor: 'background.default',
+        p: 5,
+        scrollSnapAlign: 'center',
+
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
@@ -29,7 +35,7 @@ export const Experience = ({}: Props) => {
             width: '95px',
             height: '35px',
             backgroundColor: 'grey.200',
-            color:'grey.600',
+            color: 'grey.600',
             borderRadius: '25px',
             display: 'flex',
             justifyContent: 'center',
@@ -51,7 +57,7 @@ export const Experience = ({}: Props) => {
           sx={{
             ...getFontStyle('Subtitle'),
             marginTop: 1,
-            color:'grey.600',
+            color: 'grey.600',
             textAlign: isMediumDown ? 'center' : 'inherit',
           }}
         >
@@ -59,7 +65,6 @@ export const Experience = ({}: Props) => {
         </CustomTypography>
       </Box>
       <ExperienceCard />
-     
     </Box>
   );
 };

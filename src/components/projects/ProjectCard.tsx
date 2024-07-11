@@ -5,7 +5,7 @@ import { grey } from '@mui/material/colors';
 import { useResponsiveFont } from '../../responsive/useResponsiveFont';
 import { styled, useTheme } from '@mui/material/styles';
 import CustomTypography from '../typography/CustomTypography';
-import { Button, CardActions, Tooltip } from '@mui/material';
+import { Button, CardActions } from '@mui/material';
 import { FaGithub, FaLink } from 'react-icons/fa';
 
 // Styling for the hover overlay
@@ -115,7 +115,6 @@ export const ProjectCard = ({ image, title, description, tech, livePreview, gith
         (githubLink && (
           <Overlay>
             <CardActions sx={{ justifyContent: 'space-evenly' }}>
-              <Tooltip placement="top" title="GitHub">
                 <Button
                   variant="contained"
                   sx={{
@@ -141,8 +140,6 @@ export const ProjectCard = ({ image, title, description, tech, livePreview, gith
                     github
                   </CustomTypography>
                 </Button>
-              </Tooltip>
-              <Tooltip placement="top" title="Link">
                 <Button
                   variant="contained"
                   sx={{
@@ -168,7 +165,6 @@ export const ProjectCard = ({ image, title, description, tech, livePreview, gith
                     demo
                   </CustomTypography>
                 </Button>
-              </Tooltip>
             </CardActions>
           </Overlay>
         ))}

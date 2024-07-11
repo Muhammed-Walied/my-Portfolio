@@ -16,7 +16,7 @@ export const ExperienceCard = ({}: Props) => {
         width: isSmallDown ? '100%' : '85%',
         mx: 'auto',
         mt: 5,
-        backgroundColor: '#feefef',
+        backgroundColor:  '#f3f4f6',
         borderRadius: '15px',
         p: 2,
       }}

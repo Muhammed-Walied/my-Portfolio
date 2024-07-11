@@ -20,7 +20,6 @@ export const HeroSection = ({}: Props) => {
      sx={{ width: '100%',
     backgroundColor: 'background.default',
     p: 5,
-    height:"100vh",
     scrollSnapAlign:"center",
     justifyContent:"center",
     alignItems:"center",
