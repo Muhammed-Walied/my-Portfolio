@@ -15,7 +15,7 @@ export const AnimationText = ({ text }: Props) => {
   return (
     <motion.span
       variants={{
-        visible: { transition: { staggerChildren: 0.05} },
+        visible: { transition: { staggerChildren: 0.05 } },
         hidden: {},
       }}
       initial="hidden"

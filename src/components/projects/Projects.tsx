@@ -1,65 +1,24 @@
 import Box from '@mui/material/Box';
-import CustomTypography from '../typography/CustomTypography';
 import { Grid } from '@mui/material';
 import { ProjectCard } from './ProjectCard';
 import { projectsData } from './ProjectsData';
-import { useResponsiveFont } from '../../responsive/useResponsiveFont';
-import { useResponsiveStack } from '../../responsive';
+import SectionsHeader from '../SectionsHeader';
 
 type Props = {};
 
 export const Projects = ({}: Props) => {
-  const getFontStyle = useResponsiveFont();
-  const { isMediumDown } = useResponsiveStack();
   return (
-    <Box id="Projects" sx={{ backgroundColor: 'background.paper', p: 5 , 
-    scrollSnapAlign:"center",
-    display:"flex",
-    flexDirection:"column"}}>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }}
-      >
-        <Box
-          sx={{
-            width: '95px',
-            height: '35px',
-            backgroundColor: 'grey.200',
-            color: 'grey.600',
-            borderRadius: '25px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            '&:hover': { backgroundColor: 'grey.200' },
-          }}
-        >
-          <CustomTypography
-            sx={{
-              ...getFontStyle('Body3'),
-              fontWeight: '500',
-              textTransform: 'capitalize',
-              color: 'grey.600',
-            }}
-          >
-            Projects
-          </CustomTypography>
-        </Box>
-        <CustomTypography
-          sx={{
-            ...getFontStyle('Subtitle'),
-            fontWeight: '400',
-            marginTop: 1,
-            color: 'grey.600',
-            textAlign: isMediumDown ? 'center' : 'inherit',
-          }}
-        >
-          Things I’ve built so far
-        </CustomTypography>
-      </Box>
+    <Box
+      id="Projects"
+      sx={{
+        backgroundColor: 'background.paper',
+        p: 5,
+        scrollSnapAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <SectionsHeader header="Projects" subtitle="Things I’ve built so far" />
       <Box sx={{ width: '100%', display: 'flex', flexDirection: 'row', mt: 5 }}>
         <Grid container spacing={3}>
           {projectsData.map((item) => (

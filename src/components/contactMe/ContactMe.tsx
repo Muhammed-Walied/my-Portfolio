@@ -4,13 +4,11 @@ import done from '../../assets/done.json';
 import Lottie from 'lottie-react';
 import { useResponsiveStack } from '../../responsive';
 import { grey } from '@mui/material/colors';
-import CustomTypography from '../typography/CustomTypography';
-import { useResponsiveFont } from '../../responsive/useResponsiveFont';
 import { useState } from 'react';
 import ContactAnimation from '../../assets/contact.json';
+import SectionsHeader from '../SectionsHeader';
 export const ContactMe = () => {
   const { isSmallDown } = useResponsiveStack();
-  const getFontStyle = useResponsiveFont();
   const [state, handleSubmit] = useForm('manwygna');
   const [email, setEmail] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -35,52 +33,8 @@ export const ContactMe = () => {
         flexDirection: 'column',
       }}
     >
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }}
-      >
-        <Box
-          sx={{
-            width: '95px',
-            height: '35px',
-            backgroundColor: 'grey.200',
-            color: 'grey.600',
-            borderRadius: '25px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            '&:hover': { backgroundColor: 'grey.200' },
-          }}
-        >
-          <CustomTypography
-            sx={{
-              ...getFontStyle('Body3'),
-              fontWeight: '500',
-              textTransform: 'capitalize',
-              color: 'grey.600',
-            }}
-          >
-            Get in touch
-          </CustomTypography>
-        </Box>
-        <CustomTypography
-          sx={{
-            ...getFontStyle('Subtitle'),
-            fontWeight: '400',
-            marginTop: 1,
-            color: 'grey.600',
-            textAlign: 'center',
-            width: isSmallDown ? '100%' : '50%',
-          }}
-        >
-          What’s next? Feel free to reach out to me if you're looking for a developer, have a query, or simply want to
-          connect.
-        </CustomTypography>
-      </Box>
+
+      <SectionsHeader header="Get in touch" subtitle="What’s next? Feel free to reach out to me if you’re looking for a developer, have a query, or simply want to connect." />
       <Box
         sx={{
           display: 'flex',
