@@ -3,10 +3,11 @@ import { useForm, ValidationError } from '@formspree/react';
 import done from '../../assets/done.json';
 import Lottie from 'lottie-react';
 import { useResponsiveStack } from '../../responsive';
-import { grey } from '@mui/material/colors';
 import { useState } from 'react';
 import ContactAnimation from '../../assets/contact.json';
 import SectionsHeader from '../SectionsHeader';
+import { motion } from 'framer-motion';
+
 export const ContactMe = () => {
   const { isSmallDown } = useResponsiveStack();
   const [state, handleSubmit] = useForm('manwygna');
@@ -21,116 +22,127 @@ export const ContactMe = () => {
     }
     handleSubmit(e);
   };
+
   return (
     <Box
       id="Contact"
       sx={{
         backgroundColor: 'background.default',
         p: 5,
-       
         scrollSnapAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
       }}
     >
-
-      <SectionsHeader header="Get in touch" subtitle="What’s next? Feel free to reach out to me if you’re looking for a developer, have a query, or simply want to connect." />
+      <SectionsHeader
+        header="Get in touch"
+        subtitle="What’s next? Feel free to reach out to me if you’re looking for a developer, have a query, or simply want to connect."
+      />
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          width: '100%',
-          justifyContent: 'center',
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+          gap: { xs: 4, md: 8 },
           alignItems: 'center',
+          width: '100%',
         }}
       >
-        <Box
-          maxWidth="md"
-          component="form"
-          onSubmit={handleFormSubmit}
-          noValidate
-          sx={{
-            mt: 1,
-            mx: 'auto',
-            width: isSmallDown ? '100%' : '40%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            id="email"
-            type="email"
+          <Box
+            component="form"
+            onSubmit={handleFormSubmit}
+            noValidate
             sx={{
-              ' & .MuiOutlinedInput-root': {
-                '  &.Mui-focused fieldset': {
-                  borderColor: 'background.default',
-                },
-              },
-              '& label.Mui-focused': {
-                color: 'grey.500',
-              },
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
             }}
-          />
-          <ValidationError prefix="Email" field="email" errors={state.errors} />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            label="Message"
-            id="message"
-            name="message"
-            multiline
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            rows={4}
-            sx={{
-              ' & .MuiOutlinedInput-root': {
-                '  &.Mui-focused fieldset': {
-                  borderColor: 'background.default',
-                },
-              },
-              '& label.Mui-focused': {
-                color: 'grey.500',
-              },
-            }}
-          />
-          <ValidationError prefix="Message" field="message" errors={state.errors} />
-          <Button
-            sx={{
-              color: grey[50],
-              bgcolor: grey[900],
-              borderRadius: '20px',
-              width: '200px',
-
-              '&:hover': { bgcolor: grey[900] },
-            }}
-            disableRipple
-            type="submit"
-            disabled={state.submitting}
-            variant="contained"
           >
-            {state.submitting ? 'Submitting ...' : 'Submit'}
-          </Button>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              id="email"
+              type="email"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '&.Mui-focused fieldset': {
+                    borderColor: 'primary.main',
+                  },
+                },
+                '& label.Mui-focused': {
+                  color: 'primary.main',
+                },
+              }}
+            />
+            <ValidationError prefix="Email" field="email" errors={state.errors} />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label="Message"
+              id="message"
+              name="message"
+              multiline
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              rows={4}
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '&.Mui-focused fieldset': {
+                    borderColor: 'primary.main',
+                  },
+                },
+                '& label.Mui-focused': {
+                  color: 'primary.main',
+                },
+              }}
+            />
+            <ValidationError prefix="Message" field="message" errors={state.errors} />
+            <Button
+              sx={{
+                mt: 2,
+                borderRadius: '20px',
+                width: '200px',
+              }}
+              disableRipple
+              type="submit"
+              disabled={state.submitting}
+              variant="contained"
+              color="primary"
+            >
+              {state.submitting ? 'Submitting ...' : 'Submit'}
+            </Button>
 
-          {state.succeeded && (
-            <p className="flex" style={{ fontSize: '18px', marginTop: '1.7rem' }}>
-              <Lottie loop={false} style={{ height: 37 }} animationData={done} />
-              Your message has been sent successfully 👌
-            </p>
-          )}
-        </Box>
-        <Box display={isSmallDown ? 'none' : 'block'}>
-          <Lottie style={{ height: 355 }} animationData={ContactAnimation} />
-        </Box>
+            {state.succeeded && (
+              <p className="flex" style={{ fontSize: '18px', marginTop: '1.7rem' }}>
+                <Lottie loop={false} style={{ height: 37 }} animationData={done} />
+                Your message has been sent successfully 👌
+              </p>
+            )}
+          </Box>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Box display={isSmallDown ? 'none' : 'block'}>
+            <Lottie style={{ height: 355 }} animationData={ContactAnimation} />
+          </Box>
+        </motion.div>
       </Box>
     </Box>
   );

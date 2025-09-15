@@ -1,87 +1,76 @@
 import Box from '@mui/material/Box';
 import CustomTypography from '../typography/CustomTypography';
-import { green, grey } from '@mui/material/colors';
 import { useResponsiveFont } from '../../responsive/useResponsiveFont';
-import { useResponsiveStack } from '../../responsive';
 
-type Props = {};
+type Props = {
+  experience: {
+    company: string;
+    position: string;
+    date: string;
+    description: string[];
+  };
+};
 
-export const ExperienceCard = ({}: Props) => {
+export const ExperienceCard = ({ experience }: Props) => {
   const getFontStyle = useResponsiveFont();
-  const { isSmallDown } = useResponsiveStack();
 
   return (
     <Box
       sx={{
-        width: isSmallDown ? '100%' : '85%',
-        mx: 'auto',
-        mt: 5,
-        backgroundColor:  '#f3f4f6',
-        borderRadius: '15px',
-        p: 2,
+        pl: 5,
+        mb: 4,
+        position: 'relative',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: '8px',
+          left: '10px',
+          height: '16px',
+          width: '16px',
+          borderRadius: '50%',
+          backgroundColor: 'primary.main',
+          border: '2px solid #121212',
+        },
       }}
     >
-      <Box
+      <CustomTypography
         sx={{
-          display: 'flex',
-          flexDirection: isSmallDown ? 'column' : 'row',
-          justifyContent: 'space-between',
+          ...getFontStyle('h6'),
+          color: 'primary.main',
         }}
       >
-        <CustomTypography
-          sx={{
-            fontSize: '18px',
-            lineHeight: '28px',
-            fontWeight: '500',
-            color: green[600],
-          }}
-        >
-          freelance
-        </CustomTypography>
-        <CustomTypography
-          sx={{
-            ...getFontStyle('Subtitle'),
-            fontWeight: '600',
-            color: grey[900],
-          }}
-        >
-          IN-Hand
-        </CustomTypography>
+        {experience.company}
+      </CustomTypography>
+      <CustomTypography
+        sx={{
+          ...getFontStyle('Subtitle'),
+          color: 'text.secondary',
+        }}
+      >
+        {experience.position}
+      </CustomTypography>
 
-        <CustomTypography
-          sx={{
-            ...getFontStyle('Body2'),
-            fontWeight: '400',
-            color: grey[600],
-          }}
-        >
-          Aug 2023 - Feb 2024
-        </CustomTypography>
-      </Box>
       <CustomTypography
         sx={{
           ...getFontStyle('Body2'),
-          fontWeight: '400',
-          color: grey[700],
-
-          width: isSmallDown ? '100%' : '50%',
-          marginTop: 1,
-          marginLeft: 'auto',
-          marginRight: 'auto',
+          color: 'text.secondary',
         }}
       >
-        • Developed customizable mobile application for multivendor shopping using React Native, resulting in 20%
-        increase in customer engagement.
-        <br />
-        • Implemented delivery feature that reduced product delivery times by 30%, significantly enhancing customer
-        experience.
-        <br />
-        • Created seller feature enabling individuals to list and sell wide range of products, leading to 15% growth in
-        seller registrations.
-        <br />
-        Integrated notifications feature to keep users informed of important updates and order statuses, improving user
-        retention by 25%.
-        <br />• Incorporated animations to enhance overall user interface and create more engaging user experience.
+        {experience.date}
+      </CustomTypography>
+      <CustomTypography
+        sx={{
+          ...getFontStyle('Body2'),
+          color: 'text.secondary',
+          marginTop: 2,
+        }}
+      >
+        {experience.description.map((item, index) => (
+          <Box key={index} sx={{ display: 'flex', alignItems: 'flex-start', mb: 1 }}>
+            <Box sx={{ mr: 1, color: 'primary.main' }}>•</Box>
+            {item}
+          </Box>
+        ))}
       </CustomTypography>
     </Box>
   );

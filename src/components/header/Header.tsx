@@ -14,6 +14,7 @@ import { useResponsiveStack } from '../../responsive';
 import { useResponsiveFont } from '../../responsive/useResponsiveFont';
 import { Tooltip, useTheme } from '@mui/material';
 import { ThemeContext } from '../../theme/ThemeContext';
+
 interface Props {
   window?: () => Window;
   children?: React.ReactNode;
@@ -47,7 +48,7 @@ export const Header = (props: Props) => {
             sx={{ mr: 2, display: { sm: 'none' } }}
             disableRipple
           >
-            <MenuIcon sx={{ color: 'grey.600' }} />
+            <MenuIcon sx={{ color: 'text.primary' }} />
           </IconButton>
           <Typography
             variant="h6"
@@ -55,7 +56,7 @@ export const Header = (props: Props) => {
             sx={{
               flexGrow: 1,
               display: { xs: 'none', sm: 'block' },
-              color: 'grey.900',
+              color: 'text.primary',
             }}
           >
             {'<Wello />'}
@@ -63,8 +64,8 @@ export const Header = (props: Props) => {
 
           <Box sx={{ display: { xs: 'none', sm: 'block' }, mr: 2 }}>
             {navItems.map((item) => (
-              <AnchorLink offset={50} style={{ color: 'grey.600', marginRight: 5, marginLeft: 5 }} href={`#${item}`}>
-                <Button disableRipple key={item} sx={{ color: 'grey.600', ...getStyle('Body3') }}>
+              <AnchorLink offset={50} style={{ color: 'text.secondary', marginRight: 5, marginLeft: 5, textDecoration:'none' }} href={`#${item}`}>
+                <Button disableRipple key={item} sx={{ color: 'text.secondary', ...getStyle('Body3') }}>
                   {item}
                 </Button>
               </AnchorLink>
@@ -75,22 +76,23 @@ export const Header = (props: Props) => {
               display: isSmallDown ? 'none' : 'flex',
               flexDirection: 'row',
               justifyContent: 'space-around',
+              alignItems: 'center',
             }}
           >
-            <Tooltip title={`Change ${themeContext?.currentTheme?.palette.mode} Mode`}>
-              <IconButton onClick={themeContext?.toggleTheme} color="inherit" sx={{ mr: 2 }} disableRipple>
-                {theme.palette.mode === 'dark' ? <LightModeOutlined /> : <DarkModeOutlined color="action" />}
+            <Tooltip title={`Change to ${theme.palette.mode === 'dark' ? 'light' : 'dark'} mode`}>
+              <IconButton onClick={themeContext.toggleTheme} color="inherit" sx={{ mr: 2 }} disableRipple>
+                {theme.palette.mode === 'dark' ? <LightModeOutlined sx={{color:'#00e676'}} /> : <DarkModeOutlined sx={{color:'#00e676'}} />}
               </IconButton>
             </Tooltip>
             <Button
               sx={{
                 color: grey[50],
-                bgcolor: grey[900],
+                bgcolor: 'primary.main',
                 borderRadius: '10px',
                 px: 2,
                 ...getStyle('Body3'),
 
-                '&:hover': { bgcolor: grey[900] },
+                '&:hover': { bgcolor: 'primary.dark' },
               }}
               disableRipple
               variant="contained"

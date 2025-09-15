@@ -41,20 +41,20 @@ export const CustomDrawer = ({ container, handelDrawerToggle, mobileOpen, navIte
         }}
         sx={{
           display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, backgroundColor: 'background.default' },
         }}
       >
         <Box onClick={handelDrawerToggle} sx={{ textAlign: 'center' }}>
-          <Typography variant="h6" component="div" sx={{ m: 2, textAlign: 'left', color: 'grey.600' }}>
-            {'<Wello />'}
+          <Typography variant="h6" component="div" sx={{ m: 2, textAlign: 'left', color: 'text.primary' }}>
+            {' '}
           </Typography>
 
           <List>
             {navItems.map((item) => (
               <ListItem sx={{ display: 'block', textAlign: 'left' }} key={item} disablePadding>
-                <AnchorLink offset={50} style={{ color: 'grey.600', textDecoration: 'none' }} href={`#${item}`}>
+                <AnchorLink offset={50} style={{ color: 'text.secondary', textDecoration: 'none' }} href={`#${item}`}>
                   <ListItemButton
-                    sx={{ textAlign: 'left', textDecoration: 'none', color: 'grey.600', width: '95%', marginX: 'auto' }}
+                    sx={{ textAlign: 'left', textDecoration: 'none', color: 'text.secondary', width: '95%', marginX: 'auto' }}
                   >
                     <ListItemText primary={item} />
                   </ListItemButton>
@@ -71,12 +71,12 @@ export const CustomDrawer = ({ container, handelDrawerToggle, mobileOpen, navIte
               alignItems: 'center',
             }}
           >
-            <CustomTypography variant="subtitle1" sx={{ color: 'grey.600' }}>
+            <CustomTypography variant="subtitle1" sx={{ color: 'text.secondary' }}>
               Change Theme
             </CustomTypography>
-            <Tooltip title={`Change ${themeContext?.currentTheme?.palette.mode} Mode`}>
-              <IconButton onClick={themeContext?.toggleTheme} color="inherit" sx={{ mr: 2 }} disableRipple>
-                {theme.palette.mode === 'dark' ? <LightModeOutlined /> : <DarkModeOutlined color="action" />}
+            <Tooltip title={`Change to ${theme.palette.mode === 'dark' ? 'light' : 'dark'} mode`}>
+              <IconButton onClick={themeContext.toggleTheme} color="inherit" sx={{ mr: 2 }} disableRipple>
+                {theme.palette.mode === 'dark' ? <LightModeOutlined sx={{color:'#00e676'}} /> : <DarkModeOutlined sx={{color:'#00e676'}} />}
               </IconButton>
             </Tooltip>
           </Box>
@@ -88,12 +88,12 @@ export const CustomDrawer = ({ container, handelDrawerToggle, mobileOpen, navIte
             <Button
               sx={{
                 color: grey[50],
-                bgcolor: grey[900],
+                bgcolor: 'primary.main',
                 borderRadius: '10px',
                 width: '90%',
                 ...getStyle('Body3'),
                 mx: 'auto',
-                '&:hover': { bgcolor: grey[900] },
+                '&:hover': { bgcolor: 'primary.dark' },
               }}
               disableRipple
               variant="contained"
@@ -113,3 +113,4 @@ export const CustomDrawer = ({ container, handelDrawerToggle, mobileOpen, navIte
     </nav>
   );
 };
+
