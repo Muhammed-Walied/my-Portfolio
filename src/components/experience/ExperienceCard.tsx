@@ -35,7 +35,7 @@ export const ExperienceCard = ({ experience }: Props) => {
     >
       <CustomTypography
         sx={{
-          ...getFontStyle('h6'),
+          ...getFontStyle('Body2'),
           color: 'primary.main',
         }}
       >

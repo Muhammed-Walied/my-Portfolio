@@ -63,7 +63,7 @@ export const ProjectCard = ({ image, title, description, tech, livePreview, gith
       >
         <CustomTypography
           sx={{
-            ...getFontStyle('h6'),
+            ...getFontStyle('Body2'),
             fontWeight: 'bold',
             color: 'white',
             textAlign: 'center',
@@ -76,7 +76,7 @@ export const ProjectCard = ({ image, title, description, tech, livePreview, gith
             ...getFontStyle('Body2'),
             color: 'white',
             textAlign: 'center',
-            mt: 1,
+            marginTop: 1,
           }}
         >
           {description}
@@ -87,12 +87,11 @@ export const ProjectCard = ({ image, title, description, tech, livePreview, gith
             fontWeight: 'bold',
             color: 'white',
             textAlign: 'center',
-            mt: 2,
+            marginTop: 2,
           }}
         >
           Tech stack:{' '}
           <CustomTypography
-            component="span"
             sx={{
               ...getFontStyle('Body2'),
               color: 'white',
