@@ -5,9 +5,8 @@ import { Grid } from '@mui/material';
 import SectionsHeader from '../SectionsHeader';
 import { motion } from 'framer-motion';
 
-type Props = {};
 
-export const Skills = ({}: Props) => {
+export const Skills = () => {
   return (
     <Box
       id="Skills"

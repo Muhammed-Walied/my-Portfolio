@@ -5,9 +5,8 @@ import { motion } from 'framer-motion';
 import { experienceData } from './ExperienceData';
 import { useResponsiveStack } from '../../responsive';
 
-type Props = {};
 
-export const Experience = ({}: Props) => {
+export const Experience = () => {
   const { isSmallDown } = useResponsiveStack();
   return (
     <Box

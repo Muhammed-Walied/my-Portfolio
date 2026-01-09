@@ -11,9 +11,8 @@ import Lottie from 'lottie-react';
 import { AnimationText } from '../animation/AnimationText';
 import { motion } from 'framer-motion';
 
-type Props = {};
 
-export const HeroSection = ({}: Props) => {
+export const HeroSection = () => {
   const { isSmallDown } = useResponsiveStack();
   const getFontStyle = useResponsiveFont();
   return (

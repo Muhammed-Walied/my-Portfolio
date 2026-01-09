@@ -5,9 +5,8 @@ import { projectsData } from './ProjectsData';
 import SectionsHeader from '../SectionsHeader';
 import { motion } from 'framer-motion';
 
-type Props = {};
 
-export const Projects = ({}: Props) => {
+export const Projects = () => {
   return (
     <Box
       id="Projects"
