@@ -39,7 +39,8 @@ export const ProjectCard = ({ image, title, description, tech, livePreview, gith
         alt="Project image"
         sx={{
           height: '100%',
-          objectFit: 'cover',
+          objectFit: 'contain',
+          
         }}
       />
       <Box

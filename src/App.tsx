@@ -12,7 +12,7 @@ function App() {
   return (
     <ThemeContextProvider>
         <CssBaseline />
-        <Box sx={{scrollSnapAlign:"center"}}>
+        <Box sx={{}}>
         <Header />
         </Box>
         <Box component="main">
