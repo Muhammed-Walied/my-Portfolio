@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import { CustomDrawer } from '../drawer/CustomDrawer';
+import { CV_LINK } from '../../constants/links';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { DarkModeOutlined, LightModeOutlined, FileDownloadOutlined } from '@mui/icons-material';
 import { Tooltip, useTheme } from '@mui/material';
@@ -205,9 +206,9 @@ export const Header = (props: Props) => {
 
               <Button
                 component="a"
-                href="/MuhammedMahrousResume.pdf"
+                href={CV_LINK}
                 target="_blank"
-                download
+                rel="noopener noreferrer"
                 variant="contained"
                 color="primary"
                 startIcon={<FileDownloadOutlined />}

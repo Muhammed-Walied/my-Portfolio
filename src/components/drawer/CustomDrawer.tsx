@@ -10,7 +10,8 @@ import { Button, IconButton, Tooltip, useTheme } from '@mui/material';
 import CustomTypography from '../typography/CustomTypography';
 import React from 'react';
 import { ThemeContext } from '../../theme/ThemeContext';
-import { DarkModeOutlined, LightModeOutlined, Close, FileDownloadOutlined } from '@mui/icons-material';
+import { DarkModeOutlined, LightModeOutlined, FileDownloadOutlined, Close } from '@mui/icons-material';
+import { CV_LINK } from '../../constants/links';
 
 const drawerWidth = 280;
 
@@ -160,9 +161,9 @@ export const CustomDrawer = ({ container, handelDrawerToggle, mobileOpen, navIte
 
           <Button
             component="a"
-            href="/MuhammedMahrousResume.pdf"
+            href={CV_LINK}
             target="_blank"
-            download
+            rel="noopener noreferrer"
             fullWidth
             variant="contained"
             color="primary"

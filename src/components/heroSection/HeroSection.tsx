@@ -10,6 +10,7 @@ import { AnimationText } from '../animation/AnimationText';
 import { motion } from 'framer-motion';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { useTheme } from '@mui/material/styles';
+import { CV_LINK } from '../../constants/links';
 
 export const HeroSection = () => {
   const theme = useTheme();
@@ -393,9 +394,9 @@ export const HeroSection = () => {
                 {/* Mobile-only CV Download Button */}
                 <Button
                   component="a"
-                  href="/MuhammedMahrousResume.pdf"
+                  href={CV_LINK}
                   target="_blank"
-                  download
+                  rel="noopener noreferrer"
                   variant="outlined"
                   size="large"
                   startIcon={<LuDownload />}
@@ -410,7 +411,7 @@ export const HeroSection = () => {
                     color: 'primary.main',
                   }}
                 >
-                  CV
+                  Download CV
                 </Button>
               </Box>
             </motion.div>
