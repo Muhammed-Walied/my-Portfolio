@@ -98,6 +98,7 @@ export const HeroSection = () => {
                 <Avatar
                   src="/MyImage.jpg"
                   alt="Muhammed Walied"
+                  imgProps={{ loading: 'eager', fetchPriority: 'high' }}
                   sx={{
                     width: { xs: 210, sm: 260 },
                     height: { xs: 210, sm: 260 },
@@ -550,6 +551,7 @@ export const HeroSection = () => {
                 <Avatar
                   src="/MyImage.jpg"
                   alt="Muhammed Walied"
+                  imgProps={{ loading: 'eager', fetchPriority: 'high' }}
                   sx={{
                     width: { md: 320, lg: 370 },
                     height: { md: 320, lg: 370 },

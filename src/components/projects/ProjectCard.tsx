@@ -64,6 +64,7 @@ export const ProjectCard = ({ image, title, description, tech, livePreview, gith
           component="img"
           src={image}
           alt={title}
+          loading="lazy"
           className="project-img"
           sx={{
             height: '100%',
