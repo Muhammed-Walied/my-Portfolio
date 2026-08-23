@@ -3,8 +3,8 @@ export const projectsData = [
     id: 1,
     title: 'Cuppa Cart',
     description:
-      ' Built cross-platform e-commerce application using React Native. Coffee ordering mobile appli- cation provides seamless user experience and includes Face ID security features for authentication',
-    tech: 'React Native, Firebase',
+      'A cross-platform e-commerce coffee ordering mobile application built with React Native. Provides a seamless user experience with Face ID authentication and real-time order tracking.',
+    tech: 'React Native, Firebase, Expo',
     image: '/CuppaCart.jpg',
     livePreview: '',
     githubLink: 'https://github.com/ShehabM0/CuppaCart',
@@ -13,29 +13,27 @@ export const projectsData = [
     id: 2,
     title: 'Science Hub',
     description:
-      ' Created positive and open communication platform for students within Faculty of Science,enhanced with clear and actionable user stories in mind, ensuring app effectively fulfills purpose.',
-    tech: 'React Native, Redux',
+      'An open communication mobile platform tailored for Faculty of Science students. Designed with actionable user stories to empower students and enhance academic collaboration.',
+    tech: 'React Native, Redux, Android',
     image: '/science-hub.png',
     livePreview: '',
     githubLink: 'https://github.com/science-hub-cu/science-hub',
   },
-
   {
-    id: 4,
+    id: 3,
     title: 'Learning Management System',
     description:
-      'Developed to streamline and enhance learning experience for bothstudents and educators. Developed as graduation project for students in Mathematics department at Faculty ofScience, Cairo University.',
-    tech: 'React.js, Mui ,Redux',
+      'A comprehensive web platform built to streamline the educational experience for instructors and students. Engineered as a graduation project for the Mathematics Department, Cairo University.',
+    tech: 'React.js, MUI, Redux',
     image: '/LMS.jpeg',
     livePreview: '',
-    githubLink: '',
+    githubLink: 'https://github.com/Muhammed-Walied',
   },
-
   {
-    id: 6,
+    id: 4,
     title: 'Catch The Flag',
     description:
-      ' Developed game using OpenGL framework in Java and achieved impressive milestones.Implemented multiplayer functionality',
+      'A 2D multiplayer action game developed with OpenGL in Java, featuring smooth gameplay mechanics, collision physics, and real-time multiplayer functionality.',
     tech: 'Java, OpenGL',
     image: '/Flags.png',
     livePreview: '',

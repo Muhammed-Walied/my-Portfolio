@@ -1,13 +1,12 @@
 import Box from '@mui/material/Box';
 import CustomTypography from '../typography/CustomTypography';
-import { useResponsiveFont } from '../../responsive/useResponsiveFont';
 import { useTheme } from '@mui/material';
 
 type Props = { icons: JSX.Element; title: string };
 
 export default function SkillsCard(props: Props) {
-  const getFontStyle = useResponsiveFont();
   const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
 
   return (
     <Box
@@ -16,30 +15,51 @@ export default function SkillsCard(props: Props) {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        p: 2,
-        borderRadius: 2,
+        p: { xs: 2, sm: 2.5 },
+        borderRadius: '16px',
         height: '100%',
-        backgroundColor: theme.palette.background.paper,
-        boxShadow: `
-          -5px -5px 10px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : '#ffffff'},
-          5px 5px 10px ${theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.1)'}
-        `,
-        transition: 'box-shadow 0.3s ease-in-out',
+        minHeight: { xs: '110px', sm: '125px' },
+        backgroundColor: isDark ? 'rgba(30, 41, 59, 0.45)' : 'rgba(255, 255, 255, 0.9)',
+        border: '1px solid',
+        borderColor: isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.06)',
+        boxShadow: isDark
+          ? '0 4px 20px 0 rgba(0, 0, 0, 0.25)'
+          : '0 4px 20px 0 rgba(0, 0, 0, 0.04)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+        cursor: 'default',
         '&:hover': {
-          boxShadow: `
-            -2px -2px 5px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : '#ffffff'},
-            2px 2px 5px ${theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.1)'}
-          `,
+          transform: 'translateY(-6px)',
+          borderColor: 'primary.main',
+          boxShadow: isDark
+            ? '0 12px 30px -5px rgba(16, 185, 129, 0.25), 0 0 15px rgba(16, 185, 129, 0.15)'
+            : '0 12px 30px -5px rgba(16, 185, 129, 0.2), 0 4px 12px rgba(0, 0, 0, 0.05)',
+          '& .skill-icon': {
+            transform: 'scale(1.15)',
+          },
         },
       }}
     >
-      {props.icons}
+      <Box
+        className="skill-icon"
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          mb: 1.5,
+          transition: 'transform 0.3s ease',
+        }}
+      >
+        {props.icons}
+      </Box>
       <CustomTypography
         sx={{
-          ...getFontStyle('Body1'),
-          marginTop: '2px',
+          fontSize: { xs: '0.825rem', sm: '0.9rem' },
+          fontWeight: 600,
           textAlign: 'center',
-          color: 'text.secondary',
+          color: 'text.primary',
+          letterSpacing: '-0.01em',
         }}
       >
         {props.title}

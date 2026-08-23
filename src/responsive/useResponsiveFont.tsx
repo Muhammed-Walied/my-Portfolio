@@ -1,58 +1,69 @@
-import { useResponsiveStack } from './useResponsiveStack'; // Adjust the import path as necessary
+import { useTheme, useMediaQuery } from '@mui/material';
 
 interface FontStyles {
   fontSize: string;
   lineHeight: string;
   letterSpacing?: string;
+  fontWeight?: number | string;
 }
 
-const defaultLetterSpacing = '-2%';
-
 export function useResponsiveFont() {
-  const { isSmallDown, isMediumDown } = useResponsiveStack();
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.down('sm')); // < 600px
+  const isMd = useMediaQuery(theme.breakpoints.down('md')); // < 900px
+  const isLg = useMediaQuery(theme.breakpoints.down('lg')); // < 1200px
 
-  const getFontStyle = (type: 'H1' | 'H2' | 'H3' | 'Subtitle' | 'Body1' | 'Body2' | 'Body3'): FontStyles => {
+  const getFontStyle = (
+    type: 'H1' | 'H2' | 'H3' | 'Subtitle' | 'Body1' | 'Body2' | 'Body3'
+  ): FontStyles => {
     switch (type) {
       case 'H1':
         return {
-          fontSize: isSmallDown ? '36px' : isMediumDown ? '48px' : '60px',
-          lineHeight: isSmallDown ? '40px' : isMediumDown ? '48px' : '72px',
-          letterSpacing: defaultLetterSpacing,
+          fontSize: isXs ? '1.875rem' : isMd ? '2.5rem' : isLg ? '3.25rem' : '3.75rem', // 30px -> 40px -> 52px -> 60px
+          lineHeight: isXs ? '1.2' : '1.15',
+          letterSpacing: '-0.03em',
+          fontWeight: 800,
         };
       case 'H2':
         return {
-          fontSize: isSmallDown || isMediumDown ? '18px' : '36px',
-          lineHeight: isSmallDown || isMediumDown ? '28px' : '40px',
-          letterSpacing: defaultLetterSpacing,
+          fontSize: isXs ? '1.5rem' : isMd ? '1.875rem' : '2.25rem', // 24px -> 30px -> 36px
+          lineHeight: '1.25',
+          letterSpacing: '-0.02em',
+          fontWeight: 700,
         };
       case 'H3':
         return {
-          fontSize: isSmallDown || isMediumDown ? '24px' : '30px',
-          lineHeight: isSmallDown || isMediumDown ? '28px' : '36px',
-          letterSpacing: defaultLetterSpacing,
+          fontSize: isXs ? '1.25rem' : isMd ? '1.5rem' : '1.75rem',
+          lineHeight: '1.3',
+          letterSpacing: '-0.01em',
+          fontWeight: 600,
         };
       case 'Subtitle':
         return {
-          fontSize: isSmallDown || isMediumDown ? '18px' : '20px',
-          lineHeight: '28px',
+          fontSize: isXs ? '0.95rem' : isMd ? '1.05rem' : '1.125rem',
+          lineHeight: '1.6',
+          fontWeight: 400,
         };
       case 'Body1':
         return {
-          fontSize: isSmallDown || isMediumDown ? '16px' : '18px',
-          lineHeight: isSmallDown || isMediumDown ? '24px' : '28px',
+          fontSize: isXs ? '0.875rem' : '1rem',
+          lineHeight: '1.6',
+          fontWeight: 400,
         };
       case 'Body2':
         return {
-          fontSize: '16px',
-          lineHeight: '24px',
+          fontSize: isXs ? '0.875rem' : '0.95rem',
+          lineHeight: '1.6',
+          fontWeight: 400,
         };
       case 'Body3':
         return {
-          fontSize: '14px',
-          lineHeight: '20px',
+          fontSize: isXs ? '0.75rem' : '0.875rem',
+          lineHeight: '1.5',
+          fontWeight: 500,
         };
       default:
-        return { fontSize: '16px', lineHeight: '24px' }; // Default or fallback style
+        return { fontSize: '1rem', lineHeight: '1.5', fontWeight: 400 };
     }
   };
 
